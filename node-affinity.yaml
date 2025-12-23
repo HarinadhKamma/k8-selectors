@@ -14,6 +14,28 @@ spec:
                 operator: In
                 values:
                   - us-east-1b
+              - key: disktype
+                operator: In
+                values:
+                  - ssd
+      preferredDuringSchedulingIgnoredDuringExecution:
+
+      #More weight will consider the order of execution 
+        - weight: 10
+          preference:
+            matchExpressions:
+              - key: project
+                operator: In
+                values:
+                  - roboshop
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: project
+                operator: In
+                values:
+                  - roboshop
+  containers:
   containers:
     - name: nginx
       image: nginx
