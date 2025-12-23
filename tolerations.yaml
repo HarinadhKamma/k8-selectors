@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toleration
+  labels:
+    project: roboshop
+    owner: hari
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      owner: hari
+  template:
+    metadata:
+      name: toleration
+      labels:
+        project: roboshop
+        owner: hari
+      spec:
+        containers:
+          - name: nginx
+            image: nginx
